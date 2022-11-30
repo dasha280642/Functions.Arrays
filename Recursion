@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+//Recursion
+
+void elevator (int floor);
+int factorial (int n);
+double power (double a, int n);
+void fibonacci(int n, int a=0, int b=1);
+
+//#define FACTORIAL
+//#define POWER
+//#define FIBONACCI
+
+int main() 
+{
+
+#ifdef FACTORIAL //факториал
+int n;
+cout << "Введите число для вычисления факториала: ";
+cout << endl;
+cin >> n;
+cout << factorial(n) << endl;
+#endif FACTORIAL
+
+#ifdef POWER //степень
+int a, n;
+cout << "Введите основание и показатель степени: " << endl;
+cin >> a >> n;
+cout << power(a, n) << endl;
+#endif POWER
+
+#ifdef FIBONACCI
+int n;
+cout << "Введите предельное число: " <<endl;
+cin >> n;
+fibonacci(n) ;
+#endif FIBONACCI
+}
+
+
+
+
+double power(double a, int n)
+{
+if (n==0)
+return 1;
+//Любое число в нулевой степени = 1;
+
+else if (n<0) 
+return 1/a*power(a, n+1) ;
+
+else 
+return a*power(a, n-1) ;
+
+
+
+}
+
+
+
+void fibonacci(int n, int a, int b)
+
+{
+
+if (a>n) 
+return;
+
+cout << a<<"\t";
+fibonacci(n, b, a+b) ;
+
+}    
